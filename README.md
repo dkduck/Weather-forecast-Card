@@ -41,6 +41,7 @@ Met.no (built‑in weather provider used by MET.CO)
 
 Navn: vejr_visning
 
+
 ---
 
 ## ⚡ Quick Start
