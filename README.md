@@ -34,7 +34,7 @@ To use these weather cards in Home Assistant, the following components must be i
 Met.no (built‑in weather provider used by MET.NO)
 
 # Cards
-- vertical-stack (core Lovelace card) &
+- vertical-stack (core Lovelace card) 
 - custom:button-card (HACS custom card)
 
 # input_boolean
