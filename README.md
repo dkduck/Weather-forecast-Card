@@ -37,6 +37,10 @@ Met.no (built‑in weather provider used by MET.CO)
 - vertical-stack (core Lovelace card) &
 - custom:button-card (HACS custom card)
 
+# input_boolean
+
+Navn: vejr_visning
+
 ---
 
 ## 🧩 How It Works
