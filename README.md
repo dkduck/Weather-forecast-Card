@@ -26,6 +26,19 @@ It includes three cards that provide both short‑term and long‑term forecasts
 
 ---
 
+⚙️ Requirements
+To use these weather cards in Home Assistant, the following components must be installed:
+
+Integration
+Met.no (built‑in weather provider used by MET.CO)
+
+Cards
+vertical-stack (core Lovelace card)
+
+custom:button-card (HACS custom card)
+
+---
+
 ## 🧩 How It Works
 All cards are powered by:
 
