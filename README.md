@@ -84,7 +84,7 @@ Insert the YAML for the
 ## 🧩 How It Works
 All cards are powered by:
 
-- The **MET.CO integration**  
+- The **MET.NO integration**  
 - **Daily** and **hourly** forecast entities  
 - A layout optimized for **Sections View**  
 - A clean structure that highlights the most important weather details  
