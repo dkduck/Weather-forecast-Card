@@ -92,5 +92,5 @@ All cards are powered by:
 ---
 
 ## 🚀 Purpose
-This project demonstrates how MET.CO forecast data can be displayed in a **clear**, **functional**, and **dashboard‑friendly** way.  
+This project demonstrates how MET.NO forecast data can be displayed in a **clear**, **functional**, and **dashboard‑friendly** way.  
 Use it as inspiration or integrate it directly into your own Home Assistant setup.
