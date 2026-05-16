@@ -43,6 +43,43 @@ Navn: vejr_visning
 
 ---
 
+## ⚡ Quick Start
+Follow these steps to get the MET.NO weather cards running in your Home Assistant setup:
+
+# Install the required integration
+
+Enable the Met.no weather integration in Home Assistant.
+
+# Install required cards
+
+- Add vertical-stack (core Lovelace card)
+- Install custom:button-card via HACS
+
+# Create the REST sensors
+
+- Add your MET.NO REST sensors in configuration.yaml or via the UI
+- These sensors provide the raw forecast data used by the cards
+- Make sure both daily and hourly endpoints are included
+
+After adding the sensors, restart Home Assistant to activate them
+
+# Create the template sensors
+
+Build your template sensors based on the REST data
+These sensors normalize the forecast into a clean structure for the cards
+
+Restart is not required for template sensors created via UI, but recommended if added in YAML
+
+# Add the cards to your dashboard
+
+Insert the YAML for the
+
+- 5‑Day Forecast Card
+- 5‑Hour Forecast Card
+- Combined Card
+
+---
+
 ## 🧩 How It Works
 All cards are powered by:
 
