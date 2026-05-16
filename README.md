@@ -1,7 +1,7 @@
-# 🌤️ MET.CO Weather Cards for Home Assistant
-*A clean and visual way to display MET.CO forecast data inside Home Assistant*
+# 🌤️ MET.NO Weather Cards for Home Assistant
+*A clean and visual way to display MET.NO forecast data inside Home Assistant*
 
-This repository contains my custom setup for presenting weather data from the **MET.CO integration** in Home Assistant.  
+This repository contains my custom setup for presenting weather data from the **MET.NO integration** in Home Assistant.  
 It includes three cards that provide both short‑term and long‑term forecasts in a clear and visually appealing format.
 
 ---
