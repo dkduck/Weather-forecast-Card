@@ -1,0 +1,252 @@
+type: custom:button-card
+entity: sensor.weather_forecast_day_0
+show_name: false
+show_state: false
+show_icon: false
+styles:
+  card:
+    - background: >-
+        linear-gradient(135deg, rgba(255,255,255,0.08) 0%,
+        rgba(255,255,255,0.03) 100%)
+    - backdrop-filter: blur(12px)
+    - border: 1px solid rgba(255,255,255,0.1)
+    - border-radius: 16px
+    - box-shadow: 0 4px 15px rgba(0,0,0,0.2)
+    - padding: 12px 4px
+    - max-width: 480px
+    - width: 480px
+  grid:
+    - grid-template-areas: "\"day0 day1 day2 day3 day4\""
+    - grid-template-columns: repeat(5, 1fr)
+    - grid-template-rows: 1fr
+  custom_fields:
+    day0:
+      - display: flex
+      - flex-direction: column
+      - align-items: center
+      - gap: 4px
+      - padding: 0 6px
+    day1:
+      - display: flex
+      - flex-direction: column
+      - align-items: center
+      - gap: 4px
+      - padding: 0 6px
+      - border-left: 1px solid rgba(255,255,255,0.15)
+    day2:
+      - display: flex
+      - flex-direction: column
+      - align-items: center
+      - gap: 4px
+      - padding: 0 6px
+      - border-left: 1px solid rgba(255,255,255,0.15)
+    day3:
+      - display: flex
+      - flex-direction: column
+      - align-items: center
+      - gap: 4px
+      - padding: 0 6px
+      - border-left: 1px solid rgba(255,255,255,0.15)
+    day4:
+      - display: flex
+      - flex-direction: column
+      - align-items: center
+      - gap: 4px
+      - padding: 0 6px
+      - border-left: 1px solid rgba(255,255,255,0.15)
+custom_fields:
+  day0:
+    card:
+      type: custom:button-card
+      entity: sensor.weather_forecast_day_0
+      show_name: false
+      show_state: false
+      show_icon: false
+      styles:
+        card:
+          - background: transparent
+          - border: none
+          - box-shadow: none
+          - padding: 8px 4px
+      custom_fields:
+        content: |
+          [[[
+            const s = states['sensor.weather_forecast_day_0'];
+            const bearing = s.attributes.wind_bearing;
+            const dirs = ['N','NNØ','NØ','ØNØ','Ø','ØSØ','SØ','SSØ','S','SSV','SV','VSV','V','VNV','NV','NNV'];
+            const dir = dirs[Math.round(bearing / 22.5) % 16];
+            const ms = (s.attributes.wind_speed / 3.6).toFixed(1);
+            const icons = {
+              'clear-night': '🌙', 'cloudy': '☁️', 'exceptional': '⚠️',
+              'fog': '🌫️', 'hail': '🌨️', 'lightning': '⛈️',
+              'lightning-rainy': '⛈️', 'partlycloudy': '⛅', 'pouring': '🌧️',
+              'rainy': '🌦️', 'snowy': '❄️', 'snowy-rainy': '🌨️',
+              'sunny': '☀️', 'windy': '💨', 'windy-variant': '💨'
+            };
+            const icon = icons[s.state] || '🌡️';
+            return `
+              <div style="font-size:14px;text-transform:uppercase;letter-spacing:1.2px;color:#FFFFFF;margin-bottom:6px;font-weight:600">${s.attributes.day_name}</div>
+              <div style="font-size:40px;margin-bottom:4px">${icon}</div>
+              <div style="font-size:24px;font-weight:700;color:#fb923c">${s.attributes.temperature}°</div>
+              <div style="font-size:20px;font-weight:500;color:#8ec5fc;margin-bottom:6px">${s.attributes.templow}°</div>
+              <div style="font-size:14px;color:#FFFFFF;margin-top:2px">💨 ${ms} m/s</div>
+              <div style="font-size:14px;color:#FFFFFF;margin-top:2px">${dir}</div>
+              <div style="font-size:14px;color:#FFFFFF;margin-top:2px">💧 ${s.attributes.precipitation} mm</div>
+            `;
+          ]]]
+  day1:
+    card:
+      type: custom:button-card
+      entity: sensor.weather_forecast_day_1
+      show_name: false
+      show_state: false
+      show_icon: false
+      styles:
+        card:
+          - background: transparent
+          - border: none
+          - box-shadow: none
+          - padding: 8px 4px
+      custom_fields:
+        content: |
+          [[[
+            const s = states['sensor.weather_forecast_day_1'];
+            const bearing = s.attributes.wind_bearing;
+            const dirs = ['N','NNØ','NØ','ØNØ','Ø','ØSØ','SØ','SSØ','S','SSV','SV','VSV','V','VNV','NV','NNV'];
+            const dir = dirs[Math.round(bearing / 22.5) % 16];
+            const ms = (s.attributes.wind_speed / 3.6).toFixed(1);
+            const icons = {
+              'clear-night': '🌙', 'cloudy': '☁️', 'exceptional': '⚠️',
+              'fog': '🌫️', 'hail': '🌨️', 'lightning': '⛈️',
+              'lightning-rainy': '⛈️', 'partlycloudy': '⛅', 'pouring': '🌧️',
+              'rainy': '🌦️', 'snowy': '❄️', 'snowy-rainy': '🌨️',
+              'sunny': '☀️', 'windy': '💨', 'windy-variant': '💨'
+            };
+            const icon = icons[s.state] || '🌡️';
+            return `
+              <div style="font-size:14px;text-transform:uppercase;letter-spacing:1.2px;color:#FFFFFF;margin-bottom:6px;font-weight:600">${s.attributes.day_name}</div>
+              <div style="font-size:40px;margin-bottom:4px">${icon}</div>
+              <div style="font-size:24px;font-weight:700;color:#fb923c">${s.attributes.temperature}°</div>
+              <div style="font-size:20px;font-weight:500;color:#8ec5fc;margin-bottom:6px">${s.attributes.templow}°</div>
+              <div style="font-size:14px;color:#FFFFFF;margin-top:2px">💨 ${ms} m/s</div>
+              <div style="font-size:14px;color:#FFFFFF;margin-top:2px">${dir}</div>
+              <div style="font-size:14px;color:#FFFFFF;margin-top:2px">💧 ${s.attributes.precipitation} mm</div>
+            `;
+          ]]]
+  day2:
+    card:
+      type: custom:button-card
+      entity: sensor.weather_forecast_day_2
+      show_name: false
+      show_state: false
+      show_icon: false
+      styles:
+        card:
+          - background: transparent
+          - border: none
+          - box-shadow: none
+          - padding: 8px 4px
+      custom_fields:
+        content: |
+          [[[
+            const s = states['sensor.weather_forecast_day_2'];
+            const bearing = s.attributes.wind_bearing;
+            const dirs = ['N','NNØ','NØ','ØNØ','Ø','ØSØ','SØ','SSØ','S','SSV','SV','VSV','V','VNV','NV','NNV'];
+            const dir = dirs[Math.round(bearing / 22.5) % 16];
+            const ms = (s.attributes.wind_speed / 3.6).toFixed(1);
+            const icons = {
+              'clear-night': '🌙', 'cloudy': '☁️', 'exceptional': '⚠️',
+              'fog': '🌫️', 'hail': '🌨️', 'lightning': '⛈️',
+              'lightning-rainy': '⛈️', 'partlycloudy': '⛅', 'pouring': '🌧️',
+              'rainy': '🌦️', 'snowy': '❄️', 'snowy-rainy': '🌨️',
+              'sunny': '☀️', 'windy': '💨', 'windy-variant': '💨'
+            };
+            const icon = icons[s.state] || '🌡️';
+            return `
+              <div style="font-size:14px;text-transform:uppercase;letter-spacing:1.2px;color:#FFFFFF;margin-bottom:6px;font-weight:600">${s.attributes.day_name}</div>
+              <div style="font-size:40px;margin-bottom:4px">${icon}</div>
+              <div style="font-size:24px;font-weight:700;color:#fb923c">${s.attributes.temperature}°</div>
+              <div style="font-size:20px;font-weight:500;color:#8ec5fc;margin-bottom:6px">${s.attributes.templow}°</div>
+              <div style="font-size:14px;color:#FFFFFF;margin-top:2px">💨 ${ms} m/s</div>
+              <div style="font-size:14px;color:#FFFFFF;margin-top:2px">${dir}</div>
+              <div style="font-size:14px;color:#FFFFFF;margin-top:2px">💧 ${s.attributes.precipitation} mm</div>
+            `;
+          ]]]
+  day3:
+    card:
+      type: custom:button-card
+      entity: sensor.weather_forecast_day_3
+      show_name: false
+      show_state: false
+      show_icon: false
+      styles:
+        card:
+          - background: transparent
+          - border: none
+          - box-shadow: none
+          - padding: 8px 4px
+      custom_fields:
+        content: |
+          [[[
+            const s = states['sensor.weather_forecast_day_3'];
+            const bearing = s.attributes.wind_bearing;
+            const dirs = ['N','NNØ','NØ','ØNØ','Ø','ØSØ','SØ','SSØ','S','SSV','SV','VSV','V','VNV','NV','NNV'];
+            const dir = dirs[Math.round(bearing / 22.5) % 16];
+            const ms = (s.attributes.wind_speed / 3.6).toFixed(1);
+            const icons = {
+              'clear-night': '🌙', 'cloudy': '☁️', 'exceptional': '⚠️',
+              'fog': '🌫️', 'hail': '🌨️', 'lightning': '⛈️',
+              'lightning-rainy': '⛈️', 'partlycloudy': '⛅', 'pouring': '🌧️',
+              'rainy': '🌦️', 'snowy': '❄️', 'snowy-rainy': '🌨️',
+              'sunny': '☀️', 'windy': '💨', 'windy-variant': '💨'
+            };
+            const icon = icons[s.state] || '🌡️';
+            return `
+              <div style="font-size:14px;text-transform:uppercase;letter-spacing:1.2px;color:#FFFFFF;margin-bottom:6px;font-weight:600">${s.attributes.day_name}</div>
+              <div style="font-size:40px;margin-bottom:4px">${icon}</div>
+              <div style="font-size:24px;font-weight:700;color:#fb923c">${s.attributes.temperature}°</div>
+              <div style="font-size:20px;font-weight:500;color:#8ec5fc;margin-bottom:6px">${s.attributes.templow}°</div>
+              <div style="font-size:14px;color:#FFFFFF;margin-top:2px">💨 ${ms} m/s</div>
+              <div style="font-size:14px;color:#FFFFFF;margin-top:2px">${dir}</div>
+              <div style="font-size:14px;color:#FFFFFF;margin-top:2px">💧 ${s.attributes.precipitation} mm</div>
+            `;
+          ]]]
+  day4:
+    card:
+      type: custom:button-card
+      entity: sensor.weather_forecast_day_4
+      show_name: false
+      show_state: false
+      show_icon: false
+      styles:
+        card:
+          - background: transparent
+          - border: none
+          - box-shadow: none
+          - padding: 8px 4px
+      custom_fields:
+        content: |
+          [[[
+            const s = states['sensor.weather_forecast_day_4'];
+            const bearing = s.attributes.wind_bearing;
+            const dirs = ['N','NNØ','NØ','ØNØ','Ø','ØSØ','SØ','SSØ','S','SSV','SV','VSV','V','VNV','NV','NNV'];
+            const dir = dirs[Math.round(bearing / 22.5) % 16];
+            const ms = (s.attributes.wind_speed / 3.6).toFixed(1);
+            const icons = {
+              'clear-night': '🌙', 'cloudy': '☁️', 'exceptional': '⚠️',
+              'fog': '🌫️', 'hail': '🌨️', 'lightning': '⛈️',
+              'lightning-rainy': '⛈️', 'partlycloudy': '⛅', 'pouring': '🌧️',
+              'rainy': '🌦️', 'snowy': '❄️', 'snowy-rainy': '🌨️',
+              'sunny': '☀️', 'windy': '💨', 'windy-variant': '💨'
+            };
+            const icon = icons[s.state] || '🌡️';
+            return `
+              <div style="font-size:14px;text-transform:uppercase;letter-spacing:1.2px;color:#FFFFFF;margin-bottom:6px;font-weight:600">${s.attributes.day_name}</div>
+              <div style="font-size:40px;margin-bottom:4px">${icon}</div>
+              <div style="font-size:24px;font-weight:700;color:#fb923c">${s.attributes.temperature}°</div>
+              <div style="font-size:20px;font-weight:500;color:#8ec5fc;margin-bottom:6px">${s.attributes.templow}°</div>
+              <div style="font-size:14px;color:#FFFFFF;margin-top:2px">💨 ${ms} m/s</div>
+              <div style="font-size:14px;color:#FFFFFF;margin-top:2px">${dir}</div>
+              <div style="font-size:14px;color:#FFFFFF;margin-top:2px">💧 ${s.attributes.precipitation} mm</div>
+            `;
+          ]]]
